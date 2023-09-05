@@ -62,7 +62,7 @@ function Dropdown() {
 
 function cardAnimal({ animal }) {
   return (
-    <div className=" mt-6 mx-auto max-w-sm overflow-hidden rounded-lg bg-white shadow-lg">
+    <div className=" mt-6 mx-auto max-w-sm overflow-hidden rounded-lg bg-white shadow-lg border border-gray-300 hover:shadow-2xl">
       <img
         src={animal.imageSrc}
         alt={animal.name}
