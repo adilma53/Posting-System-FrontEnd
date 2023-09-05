@@ -1,7 +1,7 @@
 import React from "react";
-import AnimalCard from "./components/cardAnimal"; // Import the AnimalCard component
+import AnimalCard from "./components/cardAnimal";
 
-import { initialAnimalData } from "./animalData";
+import { initialAnimalData } from "./data/animalData";
 
 import CardCreate from "./components/cardCreate";
 

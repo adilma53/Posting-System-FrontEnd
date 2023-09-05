@@ -1,5 +1,54 @@
 import React, { useState, useEffect, useRef } from "react";
 
+function PostBox() {
+  const [isPosting, setIsPosting] = useState(false);
+
+  return (
+    <div className="">
+      <button
+        onClick={() => setIsPosting(!isPosting)}
+        className="border-gray-300 hover:shadow-2xl  rounded-lg shadow-lg bg-white flex items-center justify-between w-full border "
+      >
+        <span className="text-base ml-10">What's on your mind?</span>
+        <img
+          className="object-cover m-5 justify-start rounded-full h-14 w-14 inline"
+          src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt=""
+        />
+      </button>
+
+      {isPosting && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white p-4 rounded w-80">
+            <h2 className="text-xl font-semibold mb-4">Modal Title</h2>
+            <input
+              type="text"
+              className="border p-2 w-full mb-2"
+              placeholder="Input Field"
+            />
+            <button
+              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+              onClick={() => setIsPosting(!isPosting)}
+            >
+              Close Modal
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CardCreate() {
+  return (
+    <div className="my-10">
+      <PostBox />
+    </div>
+  );
+}
+
+export default CardCreate;
+
 // ---------------------------------------------------------------------------------
 
 // function PostBox() {
@@ -100,65 +149,6 @@ import React, { useState, useEffect, useRef } from "react";
 //   );
 // }
 // ---------------------------------------------------------------------------------
-
-function PostBox() {
-  const [isPosting, setIsPosting] = useState(false);
-
-  return (
-    <div className="">
-      <button
-        onClick={() => setIsPosting(!isPosting)}
-        className="border-gray-300 hover:shadow-2xl  rounded-lg shadow-lg bg-white flex items-center justify-between w-full border "
-      >
-        <span className="text-base ml-10">What's on your mind?</span>
-        <img
-          className="object-cover m-5 justify-start rounded-full h-14 w-14 inline"
-          src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          alt=""
-        />
-      </button>
-
-      {isPosting && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="bg-white p-4 rounded w-80">
-            <h2 className="text-xl font-semibold mb-4">Modal Title</h2>
-            <input
-              type="text"
-              className="border p-2 w-full mb-2"
-              placeholder="Input Field"
-            />
-            <button
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-              onClick={() => setIsPosting(!isPosting)}
-            >
-              Close Modal
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function CardCreate() {
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setIsModalOpen(false);
-  // };
-
-  return (
-    <div className="my-10">
-      <PostBox />
-    </div>
-  );
-}
-
-export default CardCreate;
 
 //   const [animalData, setAnimalData] = useState(initialAnimalData);
 //   const [newCard, setNewCard] = useState({
