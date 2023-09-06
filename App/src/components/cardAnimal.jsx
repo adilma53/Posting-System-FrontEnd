@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-// import cardCreate from "./cardCreate";
 
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +48,7 @@ function Dropdown() {
               </button>
             </li>
             <li>
+              {/* this is the part it should be for deleting */}
               <button class="hover:bg-gray-100 text-gray-700 w-full px-4 py-2 text-sm">
                 Delete
               </button>

@@ -1,4 +1,4 @@
-export const initialAnimalData = {
+export const animalsData = {
   animals: [
     {
       name: "Vultures",

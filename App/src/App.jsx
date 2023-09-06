@@ -1,23 +1,17 @@
 import React from "react";
 import AnimalCard from "./components/cardAnimal";
-
-import { initialAnimalData } from "./data/animalData";
-
+import { animalsData } from "./data/animalData";
 import CardCreate from "./components/cardCreate";
 
 function App() {
   return (
     <div className="App">
-      {/* <div>
-        <button className="w-60 bg-red-500"> hello </button>
-      </div> */}
-
       <div>
         <CardCreate />
       </div>
 
       <div>
-        {initialAnimalData.animals.map((animal, index) => (
+        {animalsData.animals.map((animal, index) => (
           <AnimalCard key={index} animal={animal} />
         ))}
       </div>
