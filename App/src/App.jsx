@@ -1,4 +1,3 @@
-import React from "react";
 import AnimalCard from "./components/cardAnimal";
 import { animalsData } from "./data/animalData";
 import CardCreate from "./components/cardCreate";
@@ -14,6 +13,7 @@ function App() {
         {animalsData.animals.map((animal, index) => (
           <AnimalCard key={index} animal={animal} />
         ))}
+        {/* <AnimalCard /> */}
       </div>
     </div>
   );
