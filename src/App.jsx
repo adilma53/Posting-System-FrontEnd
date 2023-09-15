@@ -1,5 +1,5 @@
-import AnimalCard from "./components/cardAnimal";
-import PostNewCard from "./components/PostNewCard";
+import AnimalCard from "./components/card/cardAnimal";
+import PostNewCard from "./components/post/PostNewCard";
 import React, { useState, useEffect, useRef } from "react";
 
 import axios from "axios";
@@ -23,6 +23,23 @@ function App()
         }
     };
 
+    const handleDeleteCard = async (e, cardId) =>
+    {
+        e.preventDefault();
+
+        try
+        {
+            await axios.delete(`http://localhost:3000/api/cards/${cardId}`);
+            getAndStoreData();
+        } catch (error)
+        {
+            alert(error);
+        }
+
+
+    }
+
+
     useEffect(() =>
     {
         getAndStoreData();
@@ -40,7 +57,7 @@ function App()
 
             <div className="flex flex-col-reverse">
                 {cards.map((card, index) => (
-                    <AnimalCard key={index} animal={card} />
+                    <AnimalCard key={index} animal={card} handleDeleteCard={handleDeleteCard} />
                 ))}
             </div>
         </div>
