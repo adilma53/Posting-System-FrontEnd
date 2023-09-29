@@ -3,37 +3,30 @@ import { IconX } from "@tabler/icons-react";
 import { IconPhotoPlus } from "@tabler/icons-react";
 import axios from "axios";
 
-
-
-function PostNewCard({ getAndStoreData })
-{
+function PostNewCard({ getAndStoreData }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   // ---------------------------------------
 
-
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    image: '',
+    title: "",
+    description: "",
+    image: "",
   });
 
-
-  const handleChange = (e) =>
-  {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-
-  const handleSubmit = async (e) =>
-  {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try
-    {
-      if (formData.title && formData.description && formData.image)
-      {
-        await axios.post('http://localhost:3000/api/cards/addcard', formData);
+    try {
+      if (formData.title && formData.description && formData.image) {
+        await axios.post(
+          "https://posting-system-backend.onrender.com/api/cards/",
+          formData
+        );
         closeModal();
         getAndStoreData();
       }
@@ -44,49 +37,40 @@ function PostNewCard({ getAndStoreData })
       // }
 
       // Handle success or redirect as needed
-    } catch (error)
-    {
+    } catch (error) {
       console.log("->", error.message);
     }
 
     setFormData({
-      title: '',
-      description: '',
-      image: '',
+      title: "",
+      description: "",
+      image: "",
     });
   };
   // ---------------------------------------------------
 
-
-  const openModal = () =>
-  {
+  const openModal = () => {
     setIsOpen(true);
   };
 
-  const closeModal = () =>
-  {
+  const closeModal = () => {
     setIsOpen(false);
   };
 
-  useEffect(() =>
-  {
-    function handleClickOutside(event)
-    {
+  useEffect(() => {
+    function handleClickOutside(event) {
       // Do nothing if the clicked target is not within the menu
-      if (!dropdownRef.current.contains(event.target))
-      {
+      if (!dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
     }
 
     // Attach the event listener when the dropdown is open
-    if (isOpen)
-    {
+    if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
     // Remove the event listener when the dropdown is closed
-    else
-    {
+    else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
   });
@@ -140,14 +124,10 @@ function PostNewCard({ getAndStoreData })
                       Public
                     </button>
                   </div>
-
                 </div>
 
-                <form
-                  onSubmit={handleSubmit} action="submit"
-                >
+                <form onSubmit={handleSubmit} action="submit">
                   <div>
-
                     <input
                       name="title"
                       placeholder="Title"
@@ -165,7 +145,6 @@ function PostNewCard({ getAndStoreData })
                       placeholder="Image Link"
                       value={formData.image}
                       onChange={handleChange}
-
                       // value={newCard.imageSrc}
                       // onChange={(e) =>
                       // setNewCard({ ...newCard, imageSrc: e.target.value })
@@ -207,10 +186,7 @@ function PostNewCard({ getAndStoreData })
         )}
       </>
     </div>
-
   );
 }
-
-
 
 export default PostNewCard;
